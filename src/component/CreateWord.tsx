@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from 'react-router-dom' ;
 import useFetch from "../hooks/useFetch";
 import { IDay } from "./DayList";
 
 export default function CreateWord() {
   const days: IDay[] = useFetch("http://localhost:3001/days");
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   function onSubmit(e: React.FormEvent) {
@@ -31,8 +31,8 @@ export default function CreateWord() {
         }),
       }).then(res => {
         if (res.ok) {
-          alert("생성이 완료 되었습니다");
-          history.push(`/day/${day}`);
+          alert("Created item");
+          navigate(`/day/${day}`);
           setIsLoading(false);
         }
       });

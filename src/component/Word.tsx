@@ -39,7 +39,7 @@ export default function Word({ word: w }: IProps) {
   }
 
   function del() {
-    if (window.confirm("삭제 하시겠습니까?")) {
+    if (window.confirm("Want to remove item?")) {
       fetch(`http://localhost:3001/words/${word.id}`, {
         method: "DELETE",
       }).then(res => {
@@ -65,9 +65,9 @@ export default function Word({ word: w }: IProps) {
       <td>{word.eng}</td>
       <td>{isShow && word.kor}</td>
       <td>
-        <button onClick={toggleShow}>뜻 {isShow ? "숨기기" : "보기"}</button>
+        <button onClick={toggleShow}>{isShow ? "Hide" : "Show"}</button>
         <button onClick={del} className="btn_del">
-          삭제
+          Remove
         </button>
       </td>
     </tr>
