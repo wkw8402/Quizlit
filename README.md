@@ -1,7 +1,3 @@
-Here’s a draft of the README file for your project:
-
----
-
 # QuizLit: Quizlet from Temu
 
 ## Overview
